@@ -1,0 +1,42 @@
+<header>
+  <div class="green">
+    <h1>My
+     
+    </h1>
+    <h5> To do list</h5>
+  </div>
+  <div class="yellow"><img  [src]="netImage" alt="" class="pencil"><p routerLink="/input">+</p>
+     <img  [src]="netImage2" alt="" class="books">
+     <img  [src]="netImage3" alt="" class="apple">
+     <img  [src]="netImage4" alt="" class="globe">
+    </div>
+</header>
+<main>
+  <ul>
+    <li *ngFor="let element of itemService.listitems" >
+      
+      <div>
+       <div>
+         <label>
+        <input type="checkbox" [(ngModel)]="element.IsDone">
+        <i></i>
+         </label>
+      </div>
+    </div>
+      <p><span class="item" (click) ="element.ButDelete=!element.ButDelete" 
+        [class.line-through]="element.IsDone">{{element.name}}</span>
+        <input type="text" class="date" value="{{element.IsDate | date: 'dd.MM.yyyy'}}" *ngIf=!element.ButDelete>
+    <button *ngIf="element.ButDelete" class="delete" (click)="delete(element.id)">Delete</button> 
+    <!-- <input type="text" [(ngModel)]="element.IsfutureDate" #ent
+    (bsValueChange)="criticalDate($event,element.id)"
+    [class.inputRed]="element.res<=3"
+    placeholder="Date"
+    class="form-control"
+    bsDatepicker *ngIf=!element.ButDelete>
+    </p> -->
+    <!-- <div class="col-xs-12 col-12 col-md-4 form-group"> -->
+        
+      <!-- </div> -->
+    </li>
+  </ul>
+</main>

@@ -1,0 +1,16 @@
+
+<main>
+    
+        <a routerLink="/main">
+        <button>
+           <
+        </button>
+        </a>
+    
+    <div>
+        <h1>ENTER NEW TASK</h1> 
+        <input type="text" #enter placeholder="New task...">
+        <!-- <a (click)=add(enter.value);enter.value=""></a> -->
+        <button type="button" (click)="add(enter.value);enter.value=''">+</button>
+     </div> 
+</main>
